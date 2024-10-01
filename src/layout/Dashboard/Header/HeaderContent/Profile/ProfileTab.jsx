@@ -13,6 +13,8 @@ import ProfileOutlined from '@ant-design/icons/ProfileOutlined';
 import LogoutOutlined from '@ant-design/icons/LogoutOutlined';
 import UserOutlined from '@ant-design/icons/UserOutlined';
 import WalletOutlined from '@ant-design/icons/WalletOutlined';
+import { Link } from 'react-router-dom';
+import { fontStyle } from '@mui/system';
 
 // ==============================|| HEADER PROFILE - PROFILE TAB ||============================== //
 
@@ -21,23 +23,27 @@ export default function ProfileTab() {
 
   const handleListItemClick = (index) => {
     setSelectedIndex(index);
+  
   };
 
   return (
     <List component="nav" sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32 } }}>
+      <Link to='/edit-profile'>
       <ListItemButton selected={selectedIndex === 0} onClick={(event) => handleListItemClick(event, 0, '/apps/profiles/user/personal')}>
         <ListItemIcon>
           <EditOutlined />
         </ListItemIcon>
         <ListItemText primary="Edit Profile" />
       </ListItemButton>
+      </Link>
+      <Link to='/view-profile'>
       <ListItemButton selected={selectedIndex === 1} onClick={(event) => handleListItemClick(event, 1, '/apps/profiles/account/basic')}>
         <ListItemIcon>
           <UserOutlined />
         </ListItemIcon>
         <ListItemText primary="View Profile" />
       </ListItemButton>
-
+      </Link>
       <ListItemButton selected={selectedIndex === 3} onClick={(event) => handleListItemClick(event, 3, 'apps/profiles/account/personal')}>
         <ListItemIcon>
           <ProfileOutlined />
