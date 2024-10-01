@@ -8,6 +8,8 @@ const Color = Loadable(lazy(() => import('pages/component-overview/color')));
 const Typography = Loadable(lazy(() => import('pages/component-overview/typography')));
 const Shadow = Loadable(lazy(() => import('pages/component-overview/shadows')));
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/index')));
+const EditProfile = Loadable(lazy(() => import('pages/profiles/editprofile')));
+const ViewProfile = Loadable(lazy(() => import('pages/profiles/viewprofile')));
 
 // render - sample page
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/sample-page')));
@@ -46,7 +48,15 @@ const MainRoutes = {
     {
       path: 'typography',
       element: <Typography />
-    }
+    },
+    {
+      path: 'edit-profile',
+      element: <EditProfile />
+    },
+    {
+      path: 'view-profile',
+      element: <ViewProfile />
+    },
   ]
 };
 
