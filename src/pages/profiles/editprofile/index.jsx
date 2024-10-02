@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { Button, Card, CardContent, Divider, IconButton, Typography } from '@mui/material';
+import { Button, Card, CardContent, Divider, IconButton, TextField, Typography } from '@mui/material';
 import { bgcolor, Stack } from '@mui/system';
 import {MoreOutlined} from '@ant-design/icons';
 import {FacebookFilled} from '@ant-design/icons';
@@ -14,6 +14,14 @@ import {CreditCardOutlined} from '@ant-design/icons';
 import {LockOutlined} from '@ant-design/icons';
 import {SettingOutlined} from '@ant-design/icons';
 import profile from './13.png'
+import back from './back.jpeg'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import ReactPhoneInput from 'react-phone-input-material-ui';
+import Country from './Country';
+
+
 
 const handleHover =  {
     '&:hover': {
@@ -21,8 +29,10 @@ const handleHover =  {
     }
     
 }
+  
 
-export default function EditProfile() {
+    function EditProfile() {
+
   return (
     <Box sx={{ flexGrow: 1 , marginLeft:'20px' , marginRight:'20px' }}>
       <Grid container spacing={2}>
@@ -30,9 +40,10 @@ export default function EditProfile() {
             <Box display="flex"
              justifyContent='space-between'
              alignItems='center'
-              bgcolor='skyblue'
                padding='20px'
-                borderRadius='5px'>
+               bgcolor='skyblue'
+                borderRadius='5px'
+                >
                 <Box display='flex' gap={5} alignItems='center'>
                     <Box   sx={{
                     background: `radial-gradient(${"skyblue"} 55%, transparent 56%),
@@ -109,7 +120,7 @@ export default function EditProfile() {
                     </Typography>
                 </Typography>
                 </Stack>
-                <Stack marginTop='50px' paddingLeft='30px'>
+                <Stack marginTop='50px' paddingLeft='10px'>
                     <Box display='flex' alignItems='center'  columnGap="10px" sx={handleHover}  padding="10px 10px 10px 10px">
                         <IconButton>
                     <UserOutlined />
@@ -153,6 +164,80 @@ export default function EditProfile() {
               Personal Information
             </Typography>
             <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
+            <Stack direction='row' columnGap='30px' marginBottom='25px'>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>First Name</Typography>
+                <TextField fullWidth />
+             </Box>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+             <Typography color='grey'>Last Name</Typography>
+                <TextField fullWidth />
+             </Box>
+            </Stack>
+            <Stack direction='row' columnGap='30px' marginBottom='25px'>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>Email Address</Typography>
+                <TextField fullWidth />
+             </Box>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+             <Typography color='grey'>Date of Birth(+18)</Typography>
+             <LocalizationProvider dateAdapter={AdapterDayjs}>
+             <DatePicker />
+             </LocalizationProvider>
+             </Box>
+            </Stack>
+            <Stack direction='row' columnGap='30px' marginBottom='25px'>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+             <Typography color='grey'>Phone Number</Typography>
+             <ReactPhoneInput
+                component={TextField}
+            />
+             </Box>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+             <Typography color='grey'>Designation</Typography>
+             <TextField fullWidth />
+             </Box>
+            </Stack>
+            <Typography fontWeight="600" fontSize="20px" paddingLeft="20px">
+              Address
+            </Typography>
+            <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
+            <Stack direction='row' columnGap='30px' marginBottom='25px'>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>Address 01</Typography>
+                <TextField fullWidth
+                multiline
+                rows={3} />
+             </Box>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+             <Typography color='grey'>Address 02</Typography>
+                <TextField fullWidth
+                multiline
+                rows={3} />
+             </Box>
+            </Stack>
+            <Stack direction='row' columnGap='30px' marginBottom='25px'>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>Country</Typography>
+                <Country/>
+             </Box>
+             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
+             <Typography color='grey'>State</Typography>
+                <TextField fullWidth />
+             </Box>
+            </Stack>
+            <Typography fontWeight="600" fontSize="20px" paddingLeft="20px">
+              Note
+            </Typography>
+            <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
+            <TextField fullWidth
+            multiline
+            rows={5}
+            />
+            <Box display='flex' justifyContent='flex-end' columnGap='20px' mt='20px'>
+                <Button variant='outlined'>Cancel</Button>
+                <Button variant='contained'>Save</Button>
+            </Box>
             </CardContent>
           </Card>
         </Grid>
@@ -160,3 +245,5 @@ export default function EditProfile() {
     </Box>
   );
 }
+
+export default EditProfile;
