@@ -21,20 +21,35 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import ReactPhoneInput from 'react-phone-input-material-ui';
 import Country from './Country';
 
-
-
 const handleHover =  {
     '&:hover': {
         bgcolor:'#e6eaeb'
     }
     
-}
-  
+} 
+function EditProfile() {
 
-    function EditProfile() {
+    const profileItem = [
+        {
+            title:'Personal Information',
+            icon: <CreditCardOutlined />
+        },
+        {
+            title:'Payment',
+            icon: <CreditCardOutlined />
+        },
+        {
+            title:'Change Password',
+            icon: <LockOutlined />
+        },
+        {
+            title:'Settings',
+            icon: <SettingOutlined />
+        },
+    ]
 
   return (
-    <Box sx={{ flexGrow: 1 , marginLeft:'20px' , marginRight:'20px' }}>
+    <Box >
       <Grid container spacing={2}>
         <Grid item xs={12}>
             <Box display="flex"
@@ -43,6 +58,8 @@ const handleHover =  {
                padding='20px'
                bgcolor='skyblue'
                 borderRadius='5px'
+                flexWrap='wrap'
+                gap={3}
                 >
                 <Box display='flex' gap={5} alignItems='center'>
                     <Box   sx={{
@@ -67,10 +84,20 @@ const handleHover =  {
                 </Box>
                 </Box>
 
-                <Button  variant='contained'>Edit Your Profile</Button>
+                <Box 
+                display='inline-flex'
+                bgcolor='blue'
+                 px='16px' py='7px'
+                color='white'
+                 borderRadius='4px'
+                 justifyContent='center'
+                 alignItems='center'
+                  width={{xs:'100%', sm:'150px'}} >
+                    <Typography>Edit your Profile</Typography>
+                </Box>
             </Box>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3}>
           <Card variant='outlined'>
             <CardContent>
                 <Stack direction='row' justifyContent='flex-end'>
@@ -121,123 +148,107 @@ const handleHover =  {
                 </Typography>
                 </Stack>
                 <Stack marginTop='50px' paddingLeft='10px'>
-                    <Box display='flex' alignItems='center'  columnGap="10px" sx={handleHover}  padding="10px 10px 10px 10px">
-                        <IconButton>
-                    <UserOutlined />
-                        </IconButton>
-                    <Typography >
-                        Personal <br />  Information
-                    </Typography>
-                    </Box>
-                    <Box display='flex' alignItems='center' columnGap="10px"  sx={handleHover}  padding="10px 10px 10px 10px" >
-                        <IconButton>
-                        <CreditCardOutlined />
-                        </IconButton>
-                    <Typography >
-                        Payment
-                    </Typography>
-                    </Box>
-                    <Box display='flex' alignItems='center' columnGap="10px"  sx={handleHover}  padding="10px 10px 10px 10px" >
-                        <IconButton>
-                        <LockOutlined />
-                        </IconButton>
-                    <Typography>
-                        Change Password
-                    </Typography>
-                    </Box>
-                    <Box display='flex' alignItems='center' columnGap="10px"  sx={handleHover}  padding="10px 10px 10px 10px" >
-                        <IconButton>
-                        <SettingOutlined />
-                        </IconButton>
-                    <Typography>
-                        Settings
-                    </Typography>
-                    </Box>
+                    {
+                        profileItem.map((item, index)=>{
+                            return (
+                            <Box key={index} display='flex' alignItems='center'  columnGap="10px" sx={handleHover}  padding="10px 10px 10px 10px">
+                                <IconButton>
+                               {item.icon}
+                                </IconButton>
+                            <Typography >
+                                {item.title}
+                            </Typography>
+                            </Box>
+                            )
+                        })
+                    }
                 </Stack>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={12} sm={9}>
         <Card variant='outlined'>
             <CardContent>
-            <Typography fontWeight="600" fontSize="20px" paddingLeft="20px">
-              Personal Information
-            </Typography>
-            <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
-            <Stack direction='row' columnGap='30px' marginBottom='25px'>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-                <Typography color='grey'>First Name</Typography>
+            <form>
+                <Typography fontWeight="600" fontSize="20px" paddingLeft="20px">
+                Personal Information
+                </Typography>
+                <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
+                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                    <Typography color='grey'>First Name</Typography>
+                    <TextField fullWidth />
+                </Box>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>Last Name</Typography>
+                    <TextField fullWidth />
+                </Box>
+                </Stack>
+                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                    <Typography color='grey'>Email Address</Typography>
+                    <TextField fullWidth />
+                </Box>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>Date of Birth(+18)</Typography>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker />
+                </LocalizationProvider>
+                </Box>
+                </Stack>
+                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>Phone Number</Typography>
+                <ReactPhoneInput
+                    component={TextField}
+                />
+                </Box>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>Designation</Typography>
                 <TextField fullWidth />
-             </Box>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-             <Typography color='grey'>Last Name</Typography>
-                <TextField fullWidth />
-             </Box>
-            </Stack>
-            <Stack direction='row' columnGap='30px' marginBottom='25px'>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-                <Typography color='grey'>Email Address</Typography>
-                <TextField fullWidth />
-             </Box>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-             <Typography color='grey'>Date of Birth(+18)</Typography>
-             <LocalizationProvider dateAdapter={AdapterDayjs}>
-             <DatePicker />
-             </LocalizationProvider>
-             </Box>
-            </Stack>
-            <Stack direction='row' columnGap='30px' marginBottom='25px'>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-             <Typography color='grey'>Phone Number</Typography>
-             <ReactPhoneInput
-                component={TextField}
-            />
-             </Box>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-             <Typography color='grey'>Designation</Typography>
-             <TextField fullWidth />
-             </Box>
-            </Stack>
-            <Typography fontWeight="600" fontSize="20px" paddingLeft="20px">
-              Address
-            </Typography>
-            <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
-            <Stack direction='row' columnGap='30px' marginBottom='25px'>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-                <Typography color='grey'>Address 01</Typography>
+                </Box>
+                </Stack>
+                <Typography fontWeight="600" fontSize="20px" paddingLeft="20px">
+                Address
+                </Typography>
+                <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
+                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                    <Typography color='grey'>Address 01</Typography>
+                    <TextField fullWidth
+                    multiline
+                    rows={3} />
+                </Box>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>Address 02</Typography>
+                    <TextField fullWidth
+                    multiline
+                    rows={3} />
+                </Box>
+                </Stack>
+                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                    <Typography color='grey'>Country</Typography>
+                    <Country/>
+                </Box>
+                <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
+                <Typography color='grey'>State</Typography>
+                    <TextField fullWidth />
+                </Box>
+                </Stack>
+                <Typography fontWeight="600" fontSize="20px" paddingLeft="20px">
+                Note
+                </Typography>
+                <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
                 <TextField fullWidth
                 multiline
-                rows={3} />
-             </Box>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-             <Typography color='grey'>Address 02</Typography>
-                <TextField fullWidth
-                multiline
-                rows={3} />
-             </Box>
-            </Stack>
-            <Stack direction='row' columnGap='30px' marginBottom='25px'>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-                <Typography color='grey'>Country</Typography>
-                <Country/>
-             </Box>
-             <Box display='flex' width='47%' flexDirection='column' rowGap='10px'>
-             <Typography color='grey'>State</Typography>
-                <TextField fullWidth />
-             </Box>
-            </Stack>
-            <Typography fontWeight="600" fontSize="20px" paddingLeft="20px">
-              Note
-            </Typography>
-            <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
-            <TextField fullWidth
-            multiline
-            rows={5}
-            />
-            <Box display='flex' justifyContent='flex-end' columnGap='20px' mt='20px'>
-                <Button variant='outlined'>Cancel</Button>
-                <Button variant='contained'>Save</Button>
-            </Box>
+                rows={5}
+                />
+                <Box display='flex' justifyContent='flex-end'  gap='20px' mt='20px'>
+                    <Button variant='outlined'>Cancel</Button>
+                    <Button type='submit' variant='contained'>Save</Button>
+                </Box>
+            </form>
             </CardContent>
           </Card>
         </Grid>
