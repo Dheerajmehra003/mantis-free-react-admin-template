@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Button, Card, CardContent, Divider, IconButton, TextField, Typography } from '@mui/material';
 import { bgcolor, Stack } from '@mui/system';
@@ -9,12 +7,10 @@ import {MoreOutlined} from '@ant-design/icons';
 import {FacebookFilled} from '@ant-design/icons';
 import {TwitterSquareFilled} from '@ant-design/icons';
 import {LinkedinFilled} from '@ant-design/icons';
-import {UserOutlined} from '@ant-design/icons';
 import {CreditCardOutlined} from '@ant-design/icons';
 import {LockOutlined} from '@ant-design/icons';
 import {SettingOutlined} from '@ant-design/icons';
 import profile from './13.png'
-import back from './back.jpeg'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -125,7 +121,8 @@ function EditProfile() {
                     {/* </IconButton> */}
                 </Box>
                 </Stack>
-                <Stack direction='row' justifyContent='center' spacing={1} marginTop="50px">
+                <Stack direction='row' justifyContent={{xs:'space-between',sm:'center', md:'center'}} 
+                spacing={1} marginTop="50px" px='20px'>
                 <Typography variant='h5' align='center' marginTop="20px">
                     86
                     <Typography  color='grey'>
@@ -174,7 +171,7 @@ function EditProfile() {
                 Personal Information
                 </Typography>
                 <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
-                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Stack direction={{xs:'column', sm:'column', md:'row'}} gap='30px' marginBottom='25px'>
                 <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
                     <Typography color='grey'>First Name</Typography>
                     <TextField fullWidth />
@@ -184,7 +181,7 @@ function EditProfile() {
                     <TextField fullWidth />
                 </Box>
                 </Stack>
-                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Stack direction={{xs:'column', sm:'column', md:'row'}} gap='30px' marginBottom='25px'>
                 <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
                     <Typography color='grey'>Email Address</Typography>
                     <TextField fullWidth />
@@ -196,7 +193,7 @@ function EditProfile() {
                 </LocalizationProvider>
                 </Box>
                 </Stack>
-                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Stack direction={{xs:'column', sm:'column', md:'row'}} gap='30px' marginBottom='25px'>
                 <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
                 <Typography color='grey'>Phone Number</Typography>
                 <ReactPhoneInput
@@ -212,7 +209,7 @@ function EditProfile() {
                 Address
                 </Typography>
                 <Divider sx={{marginBottom:"10px" , marginTop:"10px"}} />
-                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Stack direction={{xs:'column', sm:'column', md:'row'}} gap='30px' marginBottom='25px'>
                 <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
                     <Typography color='grey'>Address 01</Typography>
                     <TextField fullWidth
@@ -226,7 +223,7 @@ function EditProfile() {
                     rows={3} />
                 </Box>
                 </Stack>
-                <Stack direction={{xs:'column', sm:'row'}} gap='30px' marginBottom='25px'>
+                <Stack direction={{xs:'column', sm:'column', md:'row'}} gap='30px' marginBottom='25px'>
                 <Box display='flex' width='100%' flexDirection='column' rowGap='10px'>
                     <Typography color='grey'>Country</Typography>
                     <Country/>
