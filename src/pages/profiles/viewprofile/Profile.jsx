@@ -204,20 +204,20 @@ export default function Profile() {
                Personal Details
               </Typography>
               <Divider sx={{marginBottom:"10px" , marginTop:"20px", }} />
-              <Box pl='10px' >
+              <Box pl='10px' pt='15px' >
                 {
                   personalDetailInfo.map((item, index)=>{
                     return ( 
-                       <List>
+                       <List sx={{py:'5px', px:'15px'}}>
                         <ListItem disablePadding>
                        <Grid container >
-                       <Grid md={6}>
+                       <Grid md={6} sm={12} xs={12}>
                         <Box display='flex' flexDirection='column' gap='3px' pl='15px'>
                       <Typography color='grey'>{item.title}</Typography>
                       <Typography>{item.info}</Typography>
                         </Box>
                        </Grid>
-                       <Grid md={6}>
+                       <Grid md={6} sm={12} xs={12}>
                        <Box display='flex' flexDirection='column' gap='3px'  pl='15px'>
                        <Typography color='grey'>{item.title2}</Typography>
                        <Typography>{item.info2}</Typography>
@@ -235,12 +235,81 @@ export default function Profile() {
           </Card>
         <Card variant='outlined'>
             <CardContent>
-          <Typography>hello</Typography>
+            <Typography fontWeight="600" fontSize="15px" paddingLeft="10px">
+               Education
+              </Typography>
+              <Divider sx={{marginBottom:"10px" , marginTop:"20px", }} />
+              <List>
+                <ListItem>
+                  <Box display='flex' rowGap='3px' flexDirection='column' width='50%'>
+                  <Typography color='grey'>Master Degree (Year)</Typography>
+                  <Typography>2014-2017</Typography>
+                  </Box>
+                  <Box display='flex' rowGap='3px' flexDirection='column' width='50%'>
+                  <Typography color='grey'>Institute</Typography>
+                  <Typography>-</Typography>
+                  </Box>
+                </ListItem>
+                  <Divider />
+                <ListItem>
+                  <Box display='flex' rowGap='3px' flexDirection='column' width='50%'>
+                  <Typography color='grey'>Bachelor (Year)</Typography>
+                  <Typography>2011-2013</Typography>
+                  </Box>
+                  <Box display='flex' rowGap='3px' flexDirection='column' width='50%' >
+                  <Typography color='grey'>Institute</Typography>
+                  <Typography>Imperial College London</Typography>
+                  </Box>
+                </ListItem>
+                  <Divider />
+                <ListItem>
+                  <Box display='flex' rowGap='3px' flexDirection='column' width='50%' >
+                  <Typography color='grey'>School (Year)</Typography>
+                  <Typography>2009-2011</Typography>
+                  </Box>
+                  <Box display='flex' rowGap='3px' flexDirection='column' width='50%'>
+                  <Typography color='grey'>Institute</Typography>
+                  <Typography>School of London, England</Typography>
+                  </Box>
+                </ListItem>
+              </List>
             </CardContent>
           </Card>
         <Card variant='outlined'>
             <CardContent>
-          <Typography>hello</Typography>
+            <Typography fontWeight="600" fontSize="15px" paddingLeft="10px">
+               Emplyment
+              </Typography>
+              <Divider sx={{marginBottom:"10px" , marginTop:"20px", }} />
+              <List>
+                <ListItem>
+                  <Box display='flex'>
+                  <Box display='flex' rowGap='3px' flexDirection='column' justifyContent='flex-start' width='50%'>
+                  <Typography color='grey'>Senior UI/UX designer (Year)</Typography>
+                  <Typography>2019-Current</Typography>
+                  </Box>
+                  <Box display='flex' rowGap='3px' flexDirection='column' width='50%'>
+                  <Typography color='grey'>Job Responsibility</Typography>
+                  <Typography>Perform task related to project manager with the 100+ team
+                     under my observation. Team management is key role 
+                     in this company.</Typography>
+                  </Box>
+                  </Box>
+                </ListItem>
+                  <Divider />
+                <ListItem>
+                  <Box display='flex' justifyContent='space-between'>
+                  <Box display='flex' rowGap='3px' flexDirection='column' justifyContent='flex-start' width='50%'>
+                  <Typography color='grey'>Trainee cum Project Manager (Year)</Typography>
+                  <Typography>2017-2019</Typography>
+                  </Box>
+                  <Box display='flex' rowGap='3px' flexDirection='column' width='50%'>
+                  <Typography color='grey'>Job Responsibility</Typography>
+                  <Typography>Team management is key role in this company.</Typography>
+                  </Box>
+                  </Box>
+                </ListItem>
+                  </List>
             </CardContent>
           </Card>
           </Stack>
