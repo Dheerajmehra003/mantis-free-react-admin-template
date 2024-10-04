@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { Button, Card, CardContent, Divider, Stack, Typography } from '@mui/material';
+import { Button, Card, CardContent, Divider, List, ListItem, Stack, Typography } from '@mui/material';
 import profile from '../editprofile/13.png'
 import {MailOutlined, PhoneOutlined, AimOutlined,  } from '@ant-design/icons'
 
@@ -32,33 +32,59 @@ export default function Profile() {
     {
       skill: 'Junior',
       percent: '30%',
-      pixel: '35px'
+      // pixel: '35px'
     },
     {
       skill: 'UX Reasearcher',
       percent: '80%',
-      pixel: '80px'
+      // pixel: '80px'
     },
     {
       skill: 'Wordpress',
       percent: '90%',
-      pixel: '60px'
+      // pixel: '60px'
     },
     {
       skill: 'HTML',
       percent: '30%',
-      pixel: '35px'
+      // pixel: '35px'
     },
     {
       skill: 'Graphic Design',
       percent: '95%',
-      pixel: '100px'
+      // pixel: '100px'
     },
     {
       skill: 'Code Style',
       percent: '75%',
-      pixel: '80px'
+      // pixel: '80px'
     },
+  ]
+
+  const personalDetailInfo = [
+    {
+      title: 'Full Name',
+      info: 'Anshan Handgun',
+      title2: 'Father Name',
+      info2: 'Mr Deepen Handgun'
+    },
+    {
+      title: 'Phone',
+      info: '(+1-876) 8654 239 581',
+      title2: 'Country',
+      info2: 'New York'
+    },
+    {
+      title: 'Email',
+      info: 'anshan.dh81@gmail.com',
+      title2: 'Zip Code',
+      info2: '956 754'
+    },
+    {
+      title: 'Address',
+      info: 'Street 110-B Kalians Bag, Dewan, M.P. New York',
+    },
+   
   ]
   return (
     <Box p={0}>
@@ -174,7 +200,37 @@ export default function Profile() {
           </Card>
         <Card variant='outlined'>
             <CardContent>
-            <Typography>hello</Typography>
+            <Typography fontWeight="600" fontSize="15px" paddingLeft="10px">
+               Personal Details
+              </Typography>
+              <Divider sx={{marginBottom:"10px" , marginTop:"20px", }} />
+              <Box pl='10px' >
+                {
+                  personalDetailInfo.map((item, index)=>{
+                    return ( 
+                       <List>
+                        <ListItem disablePadding>
+                       <Grid container >
+                       <Grid md={6}>
+                        <Box display='flex' flexDirection='column' gap='3px' pl='15px'>
+                      <Typography color='grey'>{item.title}</Typography>
+                      <Typography>{item.info}</Typography>
+                        </Box>
+                       </Grid>
+                       <Grid md={6}>
+                       <Box display='flex' flexDirection='column' gap='3px'  pl='15px'>
+                       <Typography color='grey'>{item.title2}</Typography>
+                       <Typography>{item.info2}</Typography>
+                       </Box>
+                       </Grid>
+                        </Grid>
+                        </ListItem>
+                        <Divider sx={{mt:'5px'}}/>
+                        </List>
+                    )
+                  })
+                }   
+              </Box>
             </CardContent>
           </Card>
         <Card variant='outlined'>
