@@ -10,6 +10,7 @@ import MyAccount from './MyAccount';
 import Password from './Password';
 import Role from './Role';
 import Settings from './Settings';
+import { padding, style } from '@mui/system';
 
 
 function CustomTabPanel(props) {
@@ -23,7 +24,7 @@ function CustomTabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box sx={{ p: 0, mt: 2 }}>{children}</Box>}
     </div>
   );
 }

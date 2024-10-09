@@ -132,7 +132,7 @@ const MyAccount = () => {
           </Typography>
           <Box display='flex' alignItems='center' columnGap='5px'>
             <Box sx={{bgcolor:'green'}} height='7px' width='7px' borderRadius='50%' />
-            <Typography display={{xs:'none'}}>Active 1 month ago</Typography>
+            <Typography display={{xs:'none', md:'block'}}>Active 1 month ago</Typography>
           </Box>
           </Box>
           <Divider sx={{marginBottom:"10px" , marginTop:"10px", }} />
@@ -143,7 +143,7 @@ const MyAccount = () => {
           </Typography>
           <Box display='flex' alignItems='center' columnGap='5px'>
             <Box sx={{bgcolor:'grey'}} height='7px' width='7px' borderRadius='50%' />
-            <Typography display={{xs:'none'}}>Active 1 month ago</Typography>
+            <Typography display={{xs:'none', sm:'none', md:'block'}}>Active 1 month ago</Typography>
           </Box>
           </Box>
           <Divider sx={{marginBottom:"10px" , marginTop:"10px", }} />
@@ -154,7 +154,7 @@ const MyAccount = () => {
           </Typography>
           <Box display='flex' alignItems='center' columnGap='5px'>
             <Box sx={{bgcolor:'grey'}} height='7px' width='7px' borderRadius='50%' />
-            <Typography display={{xs:'none'}}>Active 1 month ago</Typography>
+            <Typography display={{xs:'none', md:'block'}}>Active 1 month ago</Typography>
           </Box>
           </Box>
           <Divider sx={{marginBottom:"10px" , marginTop:"10px", }} />

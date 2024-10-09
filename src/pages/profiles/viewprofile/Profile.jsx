@@ -87,8 +87,7 @@ export default function Profile() {
    
   ]
   return (
-    <>
-    {/* <Box> */}
+    <>  
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <Stack >
@@ -318,7 +317,6 @@ export default function Profile() {
           </Stack>
         </Grid>
       </Grid>
-    {/* </Box> */}
     </>
   );
 }
